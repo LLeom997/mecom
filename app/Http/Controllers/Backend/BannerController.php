@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class BannerController extends Controller
@@ -25,7 +26,7 @@ class BannerController extends Controller
 
         $image = $request->file('banner_image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(768, 450)->save('upload/banner/' . $name_gen);
+        Image::make($image)->fit(768, 450)->save('upload/banner/' . $name_gen);
         $save_url = 'upload/banner/' . $name_gen;
 
         Banner::insert([

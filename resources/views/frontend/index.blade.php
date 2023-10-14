@@ -26,7 +26,7 @@
 
     <!-- Fashion Category -->
 
-    <section class="product-tabs section-padding position-relative">
+    {{-- <section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
                 <h3>{{ $skip_category_0->category_name }} Category </h3>
@@ -598,7 +598,7 @@
             </div>
         </div>
     </section>
-    <!--End 4 columns-->
+    <!--End 4 columns--> --}}
 
 
 

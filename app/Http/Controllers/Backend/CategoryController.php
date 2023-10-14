@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Http\File;
 use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
@@ -27,7 +28,7 @@ class CategoryController extends Controller
 
         $image = $request->file('category_image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(300, 300)->save('upload/category/' . $name_gen);
+        Image::make($image)->fit(300, 300)->save('upload/category/' . $name_gen);
         $save_url = 'upload/category/' . $name_gen;
 
         Category::insert([
